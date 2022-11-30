@@ -55,7 +55,7 @@ class Maze:
     penalty_visited = -0.25  # penalty for returning to a cell which was visited earlier
     penalty_impossible_move = -0.75  # penalty for trying to enter an occupied cell or moving out of the maze
 
-    def __init__(self, maze, start_cell=(0, 0), exit_cell=None):
+    def __init__(self, maze, start_cell=(0, 28), exit_cell=None):
         """ Create a new maze game.
 
             :param numpy.array maze: 2D array containing empty cells (= 0) and cells occupied with walls (= 1)
@@ -112,9 +112,9 @@ class Maze:
             self.__ax1.set_yticklabels([])
             self.__ax1.grid(True)
             self.__ax1.plot(*self.__current_cell, "rs", markersize=15)  # start is a big red square
-            self.__ax1.text(*self.__current_cell, "Start", ha="center", va="center", color="white", size=6)
+            self.__ax1.text(*self.__current_cell, "Start", ha="center", va="center", color="white", size=8)
             self.__ax1.plot(*self.__exit_cell, "gs", markersize=15)  # exit is a big green square
-            self.__ax1.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white", size=6)
+            self.__ax1.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white", size=8)
             self.__ax1.imshow(self.maze, cmap="binary")
             self.__ax1.get_figure().canvas.draw()
             self.__ax1.get_figure().canvas.flush_events()
@@ -312,8 +312,8 @@ class Maze:
             self.__ax2.set_yticks(np.arange(0.5, ncols, step=1))
             self.__ax2.set_yticklabels([])
             self.__ax2.grid(True)
-            self.__ax2.plot(*self.__exit_cell, "gs", markersize=30)  # exit is a big green square
-            self.__ax2.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white")
+            self.__ax2.plot(*self.__exit_cell, "gs", markersize=15)  # exit is a big green square
+            self.__ax2.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white", size=8)
 
             for cell in self.empty:
                 q = model.q(cell) if model is not None else [0, 0, 0, 0]
