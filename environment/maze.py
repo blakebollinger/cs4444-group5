@@ -111,10 +111,10 @@ class Maze:
             self.__ax1.set_yticks(np.arange(0.5, ncols, step=1))
             self.__ax1.set_yticklabels([])
             self.__ax1.grid(True)
-            self.__ax1.plot(*self.__current_cell, "rs", markersize=30)  # start is a big red square
-            self.__ax1.text(*self.__current_cell, "Start", ha="center", va="center", color="white")
-            self.__ax1.plot(*self.__exit_cell, "gs", markersize=30)  # exit is a big green square
-            self.__ax1.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white")
+            self.__ax1.plot(*self.__current_cell, "rs", markersize=15)  # start is a big red square
+            self.__ax1.text(*self.__current_cell, "Start", ha="center", va="center", color="white", size=6)
+            self.__ax1.plot(*self.__exit_cell, "gs", markersize=15)  # exit is a big green square
+            self.__ax1.text(*self.__exit_cell, "Exit", ha="center", va="center", color="white", size=6)
             self.__ax1.imshow(self.maze, cmap="binary")
             self.__ax1.get_figure().canvas.draw()
             self.__ax1.get_figure().canvas.flush_events()
