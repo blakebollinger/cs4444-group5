@@ -79,28 +79,28 @@ if test == Test.RANDOM_MODEL:
 if test == Test.Q_LEARNING:
     game.render(Render.TRAINING)
     model = models.QTableModel(game)
-    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=200,
+    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=250,
                              stop_at_convergence=True)
 
 # train using tabular Q-learning and an eligibility trace (aka TD-lambda)
 if test == Test.Q_ELIGIBILITY:
     game.render(Render.TRAINING)
     model = models.QTableTraceModel(game)
-    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=200,
+    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=250,
                              stop_at_convergence=True)
 
 # train using tabular SARSA learning
 if test == Test.SARSA:
     game.render(Render.TRAINING)
     model = models.SarsaTableModel(game)
-    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=200,
+    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=250,
                              stop_at_convergence=True)
 
 # train using tabular SARSA learning and an eligibility trace
 if test == Test.SARSA_ELIGIBILITY:
     game.render(Render.TRAINING)  # shows all moves and the q table; nice but slow.
     model = models.SarsaTableTraceModel(game)
-    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=10,
+    h, w, _, _ = model.train(discount=0.90, exploration_rate=0.10, learning_rate=0.10, episodes=250,
                              stop_at_convergence=True)
 
 # train using a neural network with experience replay (also saves the resulting model)
